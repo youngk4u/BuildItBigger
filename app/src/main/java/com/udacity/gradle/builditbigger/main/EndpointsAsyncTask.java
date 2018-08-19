@@ -14,6 +14,7 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
     private static MyApi myApiService = null;
     private JokeCallback jokeCallback;
 
+    private static String ERROR_TAG = "AsyncTask Error";
 
     public interface JokeCallback {
         void onGetJoke(String joke);
@@ -46,7 +47,7 @@ class EndpointsAsyncTask extends AsyncTask<Void, Void, String> {
         try {
             return myApiService.getJoke().execute().getData();
         } catch (IOException e) {
-            return e.getMessage();
+            return ERROR_TAG;
         }
     }
 

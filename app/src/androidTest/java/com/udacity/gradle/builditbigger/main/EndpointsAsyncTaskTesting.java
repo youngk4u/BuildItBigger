@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 public class EndpointsAsyncTaskTesting {
 
     private static final String TAG = "AsyncTaskTest";
+    private static final String ERROR_TAG = "AsyncTask Error";
 
     @Rule
     public ActivityTestRule<MainActivity> activityTestRule = new ActivityTestRule<>(
@@ -25,8 +26,8 @@ public class EndpointsAsyncTaskTesting {
         try {
             new EndpointsAsyncTask(new EndpointsAsyncTask.JokeCallback() {
                 @Override
-                public void onGetJoke(String joke) {
-                    Assert.assertTrue(joke.length() > 0);
+                public void onGetJoke(String result) {
+                    Assert.assertTrue(!result.equals(ERROR_TAG));
                 }
             }).execute();
         } catch (Exception e) {
