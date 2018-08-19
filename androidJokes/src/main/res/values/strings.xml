@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">androidJokes</string>
+    <string name="library_joke_text">Q: How does a computer tell you it needs more memory?  A: It says \'\'byte me\'\'\'</string>
+</resources>
